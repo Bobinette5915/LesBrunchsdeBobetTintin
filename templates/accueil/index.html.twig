@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccueilController!
+{% endblock %}
+
+{% block body %}
+	<div id="concept" class="container-fluid p-3">
+		<div class="row text-center pt-5">
+			<h1>Les Brunchs de Bob et Tintin</h1>
+		</div>
+		<div id="conceptExplain" class="col-md-8 mx-auto mb-4 p-5">
+			Se faire livrer un brunch à domicile offre une expérience conviviale et pratique, avec une multitude d'avantages. Tout d'abord, cela permet de savourer un délicieux repas sans avoir à se déplacer, ce qui est particulièrement apprécié le matin lorsque l'on souhaite éviter la foule ou quand on est pressé. Ensuite, la livraison de brunch offre une grande variété de choix, des classiques comme les œufs bénédictine et les pancakes aux options plus exotiques ou spécialisées, ce qui ravit les papilles de chacun, peu importe ses préférences alimentaires.
+			<br><br>
+
+			De plus, cela permet de profiter de moments de détente en famille ou entre amis sans se soucier de la préparation et du nettoyage. C'est une occasion parfaite pour partager des conversations agréables tout en dégustant un repas de qualité. En outre, faire livrer un brunch à domicile est également une excellente option lorsqu'on organise des événements spéciaux tels que des anniversaires, des fêtes ou des réunions, car cela simplifie l'organisation tout en offrant une expérience gastronomique mémorable.
+			<br>
+
+			<li>Un Grand choix de formules disponibles ( à la francaise, à l'anglaise et meme à l'americaine )</li> 
+			<li>Un secteur de livraison assez bien desservi</li>
+			<li>Des produits locaux, frais, Made in France et de qualité premium</li>
+			<br>
+
+			Enfin, avec la montée en popularité des services de livraison, il est désormais possible de commander un brunch à tout moment de la journée, ce qui en fait une option flexible et accessible pour satisfaire les envies culinaires à tout moment. En résumé, se faire livrer un brunch à domicile combine commodité, choix variés, convivialité et plaisir gastronomique, ce qui en fait une option attrayante pour de nombreux amateurs de brunch
+		</div>
+	</div>
+	<br>
+	<hr>
+	<br>
+	<div id='NosBoxs' class="text-center col-md-2 mx-auto p-3">Nos Box's</div>
+	<div class="col-md-10 d-flex mx-auto text-center justify-content-between">
+		<div class="col-md-2">
+			<img class='img-fluid mb-4' src="{{asset('assets/images/box1.png')}}" alt="Logo" width="100px">
+			<p>La box brunch “La Continentale” offre un mélange parfait de sucré et salé. Avec des viennoiseries fraîches, des fromages, des charcuteries, des fruits de saison et des boissons chaudes, c’est un véritable festin matinal qui ravira tous les palais. 🥐🧀🍓☕</p>
+		</div>
+		<div class="col-md-2">
+			<img class='img-fluid mb-4' src="{{asset('assets/images/box2.png')}}" alt="Logo" width="100px">
+			<p>La box brunch salé offre une variété de délices : charcuteries, fromages, œufs brouillés, saumon fumé, et légumes frais. Accompagnée de pains artisanaux et de boissons chaudes, c’est un festin matinal savoureux et satisfaisant. Parfait pour les amateurs de brunch qui préfèrent le salé. 🥓🧀🍳</p>
+		</div>
+		<div class="col-md-2">
+			<img class='img-fluid mb-4' src="{{asset('assets/images/box3.png')}}" alt="Logo" width="100px">
+			<p>La box brunch sucrée contient des viennoiseries, des confitures artisanales, un muesli gourmet, des fruits de saison, et une sélection de thés et cafés. C’est un délice matinal parfait pour les gourmands et un cadeau idéal pour les amateurs de brunch. Commencez votre journée avec gourmandise et plaisir. 🥐🍓☕</p>
+		</div>
+		<div class="col-md-2">
+			<img class='img-fluid mb-4' src="{{asset('assets/images/box4.png')}}" alt="Logo" width="100px">
+			<p>La box brunch vegan propose des délices 100% végétaliens : toasts à l’avocat, houmous, fruits frais, granola maison, laits végétaux et thés bio. C’est un festin matinal sain et délicieux, respectueux de l’environnement et des animaux. Parfait pour commencer la journée avec énergie et conscience. 🥑🍓🥣</p>
+		</div>
+	</div>
+	<br>
+	<hr>
+	<br>
+	<div id='NosParte' class="text-center col-md-2 mx-auto p-3">Nos Partenaires</div>
+	<div id='parte' class="col-md-12 d-flex mx-auto text-center justify-content-between">
+	{% for key,Box in Boxs %}
+		<div class="col-md-4" {% if key == 0 %} active {% endif %}>
+			<img class='img-fluid mb-4' src="assets/images/{{Box.illustration}}" alt="Logo" width="150px">
+				{{Box.description}}
+			{% endfor %}
+			
+
+		</div>
+		<div class="col-md-4">
+			<img class='img-fluid mb-4' src="{{asset('assets/images/panier.png')}}" alt="Logo" width="150px">
+			<p>Notre fournisseur primeur Bayart Clay, 
+				Tiens a coeur de proposer des produits frais sortie de terre audomaroise.</p>
+		</div>
+		<div class="col-md-4">
+			<img class='img-fluid mb-4' src="{{asset('assets/images/oeuf.png')}}" alt="Logo" width="150px">
+			<p>David FLANDRIN agriculteur audomarois, nous propose sa viande et ces oeufs frais tout les jours pour que votre brunch soit le meilleur !</p>
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	{% block title %}Nos Boxs
+	{% endblock %}
+	<div id="concept" class="container-fluid p-3">
+		<div class="row text-center pt-5">
+			<h1>Laissez vous trenter par nos Boxs</h1>
+		</div>
+		<div id="conceptExplain" class="col-md-3 mx-auto mb-4 p-5">
+			{% for key,Box in Boxs %}
+				<div class="col-md-12" {% if key == 0 %} active {% endif %}>
+					<img class='img-fluid mb-4' src="assets/images/{{Box.illustration}}" alt="Logo" width="150px"> {{Box.nom}} <br>
+					{{Box.description}}
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+
+
+{% endblock %}
