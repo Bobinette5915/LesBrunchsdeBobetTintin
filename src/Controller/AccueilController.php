@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Boxs;
+use App\Entity\Partenaires;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,9 +24,19 @@ class AccueilController extends AbstractController
     {
 
         $boxs = $this->entityManager->getRepository(Boxs::class)->findAll();
+        $partenaires = $this->entityManager->getRepository(Partenaires::class)->findAll();
+
+        // Mélange la liste des partenaires de manière aléatoire
+        shuffle($partenaires);
+        shuffle($boxs);
+
+        // Sélectionne les trois premiers partenaires
+        $partenairesAleatoires = array_slice($partenaires, 0, 3);
+        $boxAleatoires = array_slice($boxs, 0, 4);
 
         return $this->render('accueil/index.html.twig', [
-            'Boxs' => $boxs,
+            'boxAleatoires' => $boxAleatoires,
+            'partenairesAleatoires' => $partenairesAleatoires,
         ]);
     }
 }

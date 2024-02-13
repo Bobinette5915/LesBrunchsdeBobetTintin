@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AccueilController!
+{% block title %}Les Brunchs de Bob et Tintin
 {% endblock %}
 
 {% block body %}
@@ -26,47 +26,38 @@
 	<br>
 	<hr>
 	<br>
+
+	
+	{# Affichages des Box enregistrées dans la table Boxs via easyadmin #}
 	<div id='NosBoxs' class="text-center col-md-2 mx-auto p-3">Nos Box's</div>
 	<div class="col-md-10 d-flex mx-auto text-center justify-content-between">
-		<div class="col-md-2">
-			<img class='img-fluid mb-4' src="{{asset('assets/images/box1.png')}}" alt="Logo" width="100px">
-			<p>La box brunch “La Continentale” offre un mélange parfait de sucré et salé. Avec des viennoiseries fraîches, des fromages, des charcuteries, des fruits de saison et des boissons chaudes, c’est un véritable festin matinal qui ravira tous les palais. 🥐🧀🍓☕</p>
+
+	{% for key,Box in boxAleatoires %}
+		<div class="col-md-2" {% if key == 0 %} active {% endif %}>
+			<img class='img-fluid mb-4' src="assets/images/{{Box.illustration}}" alt="Logo" width="100px"><br>
+			<p>{{Box.description}}</p>
 		</div>
-		<div class="col-md-2">
-			<img class='img-fluid mb-4' src="{{asset('assets/images/box2.png')}}" alt="Logo" width="100px">
-			<p>La box brunch salé offre une variété de délices : charcuteries, fromages, œufs brouillés, saumon fumé, et légumes frais. Accompagnée de pains artisanaux et de boissons chaudes, c’est un festin matinal savoureux et satisfaisant. Parfait pour les amateurs de brunch qui préfèrent le salé. 🥓🧀🍳</p>
-		</div>
-		<div class="col-md-2">
-			<img class='img-fluid mb-4' src="{{asset('assets/images/box3.png')}}" alt="Logo" width="100px">
-			<p>La box brunch sucrée contient des viennoiseries, des confitures artisanales, un muesli gourmet, des fruits de saison, et une sélection de thés et cafés. C’est un délice matinal parfait pour les gourmands et un cadeau idéal pour les amateurs de brunch. Commencez votre journée avec gourmandise et plaisir. 🥐🍓☕</p>
-		</div>
-		<div class="col-md-2">
-			<img class='img-fluid mb-4' src="{{asset('assets/images/box4.png')}}" alt="Logo" width="100px">
-			<p>La box brunch vegan propose des délices 100% végétaliens : toasts à l’avocat, houmous, fruits frais, granola maison, laits végétaux et thés bio. C’est un festin matinal sain et délicieux, respectueux de l’environnement et des animaux. Parfait pour commencer la journée avec énergie et conscience. 🥑🍓🥣</p>
-		</div>
+			{% endfor %}
+		
 	</div>
+	<p class="text-end p-4"><a href="{{ path('app_nos_boxs') }}">voir plus -></a></p>
 	<br>
 	<hr>
 	<br>
 	<div id='NosParte' class="text-center col-md-2 mx-auto p-3">Nos Partenaires</div>
 	<div id='parte' class="col-md-12 d-flex mx-auto text-center justify-content-between">
-	{% for key,Box in Boxs %}
-		<div class="col-md-4" {% if key == 0 %} active {% endif %}>
-			<img class='img-fluid mb-4' src="assets/images/{{Box.illustration}}" alt="Logo" width="150px">
-				{{Box.description}}
-			{% endfor %}
+	
 			
 
+		
+		{% for key,Partenaire in partenairesAleatoires %}
+		<div class="col-md-3" {% if key == 0 %} active {% endif %}><a href="{{ path('app_partenaires') }}">
+			<img class='img-fluid mb-4' src="assets/images/{{Partenaire.logo}}" alt="Logo" width="100px"><br>
+			<h4>{{Partenaire.nom}}</h4>
+			<p>{{Partenaire.description}}</p></a>
 		</div>
-		<div class="col-md-4">
-			<img class='img-fluid mb-4' src="{{asset('assets/images/panier.png')}}" alt="Logo" width="150px">
-			<p>Notre fournisseur primeur Bayart Clay, 
-				Tiens a coeur de proposer des produits frais sortie de terre audomaroise.</p>
-		</div>
-		<div class="col-md-4">
-			<img class='img-fluid mb-4' src="{{asset('assets/images/oeuf.png')}}" alt="Logo" width="150px">
-			<p>David FLANDRIN agriculteur audomarois, nous propose sa viande et ces oeufs frais tout les jours pour que votre brunch soit le meilleur !</p>
-		</div>
+			{% endfor %}
 	</div>
+	<p class="text-end p-4"><a href="{{ path('app_partenaires') }}">voir plus -></a></p>
 
 {% endblock %}

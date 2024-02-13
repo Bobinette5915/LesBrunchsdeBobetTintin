@@ -24,9 +24,13 @@ class Ingredients
     #[ORM\ManyToMany(targetEntity: Boxs::class, mappedBy: 'ingredients')]
     private Collection $boxs;
 
+    #[ORM\ManyToMany(targetEntity: Boxs::class, mappedBy: 'quantites')]
+    private Collection $Quant;
+
     public function __construct()
     {
         $this->boxs = new ArrayCollection();
+        $this->Quant = new ArrayCollection();
     }
 
     public function __toString()
@@ -89,4 +93,13 @@ class Ingredients
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Boxs>
+     */
+    public function getQuant(): Collection
+    {
+        return $this->Quant;
+    }
+
 }

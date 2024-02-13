@@ -158,4 +158,9 @@ class Boxs
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Ingredients>
+     */
+ 
 }

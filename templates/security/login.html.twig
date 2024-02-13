@@ -21,7 +21,7 @@
 					<div class="mb-3">
 						Vous etes connecter en tant que
 						{{ app.user.userIdentifier }},
-						<a href="{{ path('app_logout') }}">se Déconnecter</a>
+						<a href="">se Déconnecter</a>
 					</div>
 				{% endif %}
 
@@ -39,6 +39,7 @@
 						Me Connecter
 					</button>
 				</div>
+				<p class="text-center mt-3">Pas encore de compte ? <a href="{{path('app_inscription')}}">Inscrivez-vous </a>!</p>
 
 			</form>
 

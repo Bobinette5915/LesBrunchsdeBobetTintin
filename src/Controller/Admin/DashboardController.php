@@ -5,7 +5,9 @@ namespace App\Controller\Admin;
 use App\Entity\Boxs;
 use App\Entity\Categories;
 use App\Entity\Ingredients;
+use App\Entity\Partenaires;
 use App\Entity\Utilisateur;
+use App\Entity\VillesLivrables;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -56,6 +58,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Categories', 'fa-solid fa-list', Categories::class);
         yield MenuItem::linkToCrud('Boxs', 'fa-solid fa-plate-wheat', Boxs::class);
         yield MenuItem::linkToCrud('Ingredients', 'fa-solid fa-plate-wheat', Ingredients::class);
+        yield MenuItem::linkToCrud('Partenaires', 'fa-solid fa-user-group', Partenaires::class);
+        yield MenuItem::linkToCrud('Zone de livraison', 'fa-solid fa-city', VillesLivrables::class);
 
     }
 }

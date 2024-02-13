@@ -3,13 +3,19 @@
   \**************************************************************************************************************/
   body {
     background-color: rgb(255, 255, 255);
+    min-height: 100%;
+    position:relative;
 }
 *{
   margin: 0;
   padding: 0;
   font-family: 'Itim', cursive;
-
 }
+
+html{
+  height: 100%;
+}
+
 a{
   color: black;
   text-decoration: none;
@@ -24,6 +30,8 @@ a{
 #footer{
   background-color:#E7D1D1 ;
   min-height: 70px;
+  position: absolute;
+  width: 100%;
 }
 
 #concept{
@@ -52,6 +60,11 @@ a{
 }
 #parte p{
   margin: 0 5rem 0 5rem;
+}
+
+
+.rounded-custom{
+  border-radius: 15px;
 }
 
 /*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLmNzcyIsIm1hcHBpbmdzIjoiOzs7QUFBQTtJQUNJLG9DQUFvQztBQUN4QyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL2Fzc2V0cy9zdHlsZXMvYXBwLmNzcyJdLCJzb3VyY2VzQ29udGVudCI6WyJib2R5IHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjU1LCAyNTUsIDI1NSk7XG59XG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=*/

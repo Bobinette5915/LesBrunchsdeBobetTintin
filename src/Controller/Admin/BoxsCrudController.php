@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -31,10 +32,12 @@ class BoxsCrudController extends AbstractCrudController
                 ->setUploadDir('public/assets/images')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
                 ->setRequired(false),
-            TextEditorField::new('description'),
+            TextareaField::new('description'),
             MoneyField::new("prix")->setCurrency("EUR"), // Remplacez "EUR" par votre devise souhaitée
             AssociationField::new("categories"),
             AssociationField::new("ingredients"),
+
+
                 ];
     }
     
