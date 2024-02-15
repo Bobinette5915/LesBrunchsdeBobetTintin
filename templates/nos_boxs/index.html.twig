@@ -14,14 +14,15 @@
 
             
                 <div  class="rounded-custom bg-light bg-opacity-75 col-md-4 p-4 m-4" {% if key == 0 %} active {% endif %}>
-                    <img class='img-fluid m-4' src="assets/images/{{Box.illustration}}" alt="Logo" width="200px"> <br>
+                    <img class='img-fluid m-4' src="assets/images/{{Box.illustration}}" alt="Photo de {{Box.nom}}" width="200px"> <br>
                     <h3 class="card-title">{{Box.nom}}</h3> 
                     <p class="card-text">{{Box.subtitle}}</p>
                     <p class="card-text">{{Box.description}}</p>
-                    <a href="#" class="btn btn-primary mb-3">Personnaliser cette Box</a>
+                    <a href="{{ path('app_ma_box', {'slug' : Box.slug})}}" class="btn btn-primary mb-3">Personnaliser cette Box</a>
                 </div>
             
 			{% endfor %}
+            
             </div>
 		</div>
 	</div>

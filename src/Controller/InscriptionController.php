@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
+use App\Classe\Mail;
 
 class InscriptionController extends AbstractController
 {
@@ -43,7 +44,16 @@ class InscriptionController extends AbstractController
                 $this->entityManager->persist($utilisateur);
                 $entityManager->flush();
 
-                $notification = 'Votre inscription est validée';
+                $notification = "Votre inscription est validée, un mail vient de vous être envoyé <br>
+                Vous pouvez dès à présent vous connecter dans l'onglet  'se Connecter'";
+
+
+                // envoi du mail de confirmation d'inscription
+                $mail =new mail();
+                $objet = 'Bienvenue sur "Les Brunchs"';
+                $contenue = 'Bonjour '.$utilisateur->getNom().' <br>Bienvenue sur "les Brunchs de Bob et Tintin", <br> Votre inscription a bien été enregistrée ! Vous pouvez dès à present vous connecter <br><hr><br>Decouvrez nos Boxs et mettez du soleil dans vos petits dejeunées !!';
+                $mail -> send('bob.et.tintin@gmail.com', 'Les Brunchs destinataire', $utilisateur->getEmail(), $utilisateur->getNom(),  $objet, $contenue);
+
             } else {
                 $notification = "L'email est déjà pris";
             }

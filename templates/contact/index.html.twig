@@ -1,12 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription
-{% endblock %}
+{% block title %}Nous Contacter{% endblock %}
 
 {% block body %}
-	<div id="concept" class="container-fluid p-3">
+<div id="concept" class="container-fluid p-3">
 		<div class="row text-center pt-5">
-			<h1>Créer votre Compte</h1>
+			<h1>Envoyez nous un message</h1>
 		
 		</div>
 		<div id="conceptExplain" class="col-md-6 mx-auto mb-4 p-5">
@@ -29,7 +28,7 @@
 			{{ form_row(form.email) }}
 			<div class="row">
 				<div class="col-md-12">
-					{{ form_row(form.password) }}
+					{{ form_row(form.Message) }}
 				</div>
 				
 			</div>
@@ -38,9 +37,7 @@
 			<div class="col-md-6 mx-auto">
 				{{ form_row(form.submit) }}
 			</div>
-			<p class="text-center">Déjà un compte ? <a href="{{path('app_connexion')}}">Connectez-vous</a> pour savourer de délicieux Brunchs !</p>
 			{{ form_end(form) }}
 		</div>
 	</div>
-
 {% endblock %}

@@ -30,7 +30,7 @@ class AccueilController extends AbstractController
         shuffle($partenaires);
         shuffle($boxs);
 
-        // Sélectionne les trois premiers partenaires
+        // Sélectionne les  premiers partenaires
         $partenairesAleatoires = array_slice($partenaires, 0, 3);
         $boxAleatoires = array_slice($boxs, 0, 4);
 

@@ -24,7 +24,7 @@ class DashboardController extends AbstractDashboardController
         // return parent::index();
 
         $routeBuilder = $this->container->get(RouterAdminUrlGenerator::class);
-        $url = $routeBuilder->setController(IngredientsCrudController::class)->generateUrl();
+        $url = $routeBuilder->setController(BoxsCrudController::class)->generateUrl();
 
         return $this->redirect($url);
 
@@ -53,10 +53,10 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        // yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToCrud('Boxs', 'fa-solid fa-plate-wheat', Boxs::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', Utilisateur::class);
         yield MenuItem::linkToCrud('Categories', 'fa-solid fa-list', Categories::class);
-        yield MenuItem::linkToCrud('Boxs', 'fa-solid fa-plate-wheat', Boxs::class);
         yield MenuItem::linkToCrud('Ingredients', 'fa-solid fa-plate-wheat', Ingredients::class);
         yield MenuItem::linkToCrud('Partenaires', 'fa-solid fa-user-group', Partenaires::class);
         yield MenuItem::linkToCrud('Zone de livraison', 'fa-solid fa-city', VillesLivrables::class);

@@ -50,8 +50,8 @@
 			
 
 		
-		{% for key,Partenaire in partenairesAleatoires %}
-		<div class="col-md-3" {% if key == 0 %} active {% endif %}><a href="{{ path('app_partenaires') }}">
+		{% for Partenaire in partenairesAleatoires %}
+		<div class="col-md-3"><a href="{{ path('app_partenaires') }}">
 			<img class='img-fluid mb-4' src="assets/images/{{Partenaire.logo}}" alt="Logo" width="100px"><br>
 			<h4>{{Partenaire.nom}}</h4>
 			<p>{{Partenaire.description}}</p></a>

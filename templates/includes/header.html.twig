@@ -15,10 +15,16 @@
 			<a href="{{ path('app_partenaires') }}"><h3>Nos Partenaires</h3></a>
 		</div>
 		<div class="col-md-3 ">
-			<a href=""><h3>Une Question ?</h3></a>
+			<a href="{{path('app_contact')}}"><h3>Une Question ?</h3></a>
 		</div>
 		<div class="col-md-3 ">
-			<a href="{{path('app_connexion')}}"><h3>Se Connecter</h3></a>
+		{% if app.user %}
+			<a href="{{path('app_compte')}}"><h3>Mon compte</h3></a>
+			<a href="{{path('app_logout')}}"><h5>Se déconnecter</h5></a>
+				{% else %}
+					<a href="{{path('app_connexion')}}"><h3>Se Connecter</h3></a> 
+		{% endif %}
+			
 		</div>
 	</div>
 </nav>
